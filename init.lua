@@ -50,7 +50,7 @@ map("n", "<leader>e", ":25Lex<CR>", opts)
 --buffers
 map("n", "<Tab>", ":bnext<CR>", opts)
 map("n", "<S-Tab>", ":bprev<CR>", opts)
-map("n", "<leader>q", ":bd!<CR>", opts)
+map("n", "<leader>d", ":bd!<CR>", opts)
 
 --window switching
 map("n", "<C-h>", "<C-w>h", opts)
