@@ -1,13 +1,39 @@
---C code snippets
-vim.keymap.set("i", "if<CR>", "if (@) {<CR><CR>}<C-c>kk0/@<CR>")
-vim.keymap.set("i", "fun<CR>", "@ @ (@) {<CR><CR>}<C-c>kkk/@<CR>")
-vim.keymap.set("i", "switch<CR>", 
-	"switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kk0/@<CR>")
-vim.keymap.set("i", "for<CR>", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>")
+local map = vim.keymap.set
+local opts = { noremap = true }
+
+-------------------------------------------------------------------------------
+--                             CODE SNIPPETS                                 --
+-------------------------------------------------------------------------------
+
+map("i", "switch<CR>", 
+	"switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kkk0/@<CR>", opts)
+
+map("i", "for<CR>", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "if<CR>", "if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "elif<CR>", "else if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "fun<CR>", "@ @ (@) {<CR>@<CR>}<C-c>kk/@<CR>", opts)
+
+map("i", "fori<CR>", 
+	"for (int i = 0; i < @; i++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "forj<CR>", 
+	"for (int j = 0; j < @; j++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "fork<CR>", 
+	"for (int k = 0; k < @; k++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+
+map("i", "while<CR>", "while @ do<CR>@<CR>end<C-c>kk0/@<CR>", opts)
+
+-------------------------------------------------------------------------------
+--                                   OTHER                                   --
+-------------------------------------------------------------------------------
 
 --comment toggling
-vim.keymap.set("v", "<C-/>", "<S-i>//<Esc>")
-vim.keymap.set("n", "<C-/>", "0i//<Esc>")
+map("v", "<C-/>", "<S-i>//<Esc>", opts)
+map("n", "<C-/>", "0i//<Esc>", opts)
 
 -------------------------------------------------------------------------------
 --                                 CLANGD LSP                                --

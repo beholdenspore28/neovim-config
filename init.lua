@@ -34,38 +34,40 @@ vim.cmd.colorscheme("quiet")
 -------------------------------------------------------------------------------
 
 vim.g.mapleader = " "
+local map = vim.keymap.set
+local opts = { noremap = true }
 
 --find file
-vim.keymap.set("n","<leader>f",":find ./**/")
+map("n","<leader>f",":find ./**/", opts)
 
 --netrw (file tree / file manager)
-vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
-vim.keymap.set("n", "<leader>e", ":25Lex<CR>")
+map("n", "<leader>pv", ":Ex<CR>", opts)
+map("n", "<leader>e", ":25Lex<CR>", opts)
 
 --buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", ":bprev<CR>")
-vim.keymap.set("n", "<leader>q", ":bd!<CR>")
+map("n", "<Tab>", ":bnext<CR>", opts)
+map("n", "<S-Tab>", ":bprev<CR>", opts)
+map("n", "<leader>q", ":bd!<CR>", opts)
 
 --window switching
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
-vim.keymap.set("n", "<C-l>", "<C-w>l")
+map("n", "<C-h>", "<C-w>h", opts)
+map("n", "<C-j>", "<C-w>j", opts)
+map("n", "<C-k>", "<C-w>k", opts)
+map("n", "<C-l>", "<C-w>l", opts)
 
 --scrolling
-vim.keymap.set("n", "<C-d>", "<C-d>zz")
-vim.keymap.set("n", "<C-u>", "<C-u>zz")
-vim.keymap.set("n", "j", "jzz")
-vim.keymap.set("n", "k", "kzz")
+map("n", "<C-d>", "<C-d>zz", opts)
+map("n", "<C-u>", "<C-u>zz", opts)
+map("n", "j", "jzz", opts)
+map("n", "k", "kzz", opts)
 
 --visual mode maps
 --find and replace
-vim.keymap.set("v","<leader>r","\"hy:%s/<C-r>h//g<left><left>")
+map("v","<leader>r","\"hy:%s/<C-r>h//g<left><left>", opts)
 --move selected line down
-vim.keymap.set("v","J",":m '>+1<CR>gv=gv");
+map("v","J",":m '>+1<CR>gv=gv", opts);
 --move selected line up
-vim.keymap.set("v","K",":m '>-2<CR>gv=gv");
+map("v","K",":m '>-2<CR>gv=gv", opts);
 
 --lsp: format buffer
-vim.keymap.set("n","<leader><F7>",":lua vim.lsp.buf.format()<CR>");
+map("n","<leader><F7>",":lua vim.lsp.buf.format()<CR>", opts);
