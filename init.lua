@@ -68,14 +68,6 @@ vim.keymap.set("i", "[]", "[]<Left>")
 vim.keymap.set("i", "<>", "<><Left>")
 vim.keymap.set("i", "/*", "/**/<Left><Left>")
 
---C code snippets
---TODO move this to c.lua
-vim.keymap.set("i", "if<CR>", "if (@) {<CR><CR>}<C-c>kk0/@<CR>")
-vim.keymap.set("i", "fun<CR>", "@ @ (@) {<CR><CR>}<C-c>kkk/@<CR>")
-vim.keymap.set("i", "switch<CR>", 
-	"switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kk0/@<CR>")
-vim.keymap.set("i", "for<CR>", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>")
-
 --visual mode maps
 --find and replace
 vim.keymap.set("v","<leader>r","\"hy:%s/<C-r>h//g<left><left>")
