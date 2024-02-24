@@ -37,6 +37,9 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 local opts = { noremap = true }
 
+--make build
+map("n", "<F5>", ":!make -B -j<CR>")
+
 --find file
 map("n","<leader>f",":find ./**/", opts)
 
