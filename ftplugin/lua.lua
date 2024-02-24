@@ -2,6 +2,8 @@
 vim.keymap.set("v", "<C-/>", "<S-i>--<Esc>")
 vim.keymap.set("n", "<C-/>", "0i--<Esc>")
 
+-------------------------------------------------------------------------------
+--                           LUA-LANGUAGE-SERVER                             --
 local root_files = {
   '.luarc.json',
   '.luarc.jsonc',
