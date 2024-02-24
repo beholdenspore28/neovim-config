@@ -36,7 +36,7 @@ vim.cmd.colorscheme("quiet")
 vim.g.mapleader = " "
 
 --find file
-vim.keymap.set("n","<leader>f",":find *.")
+vim.keymap.set("n","<leader>f",":find ./**/")
 
 --netrw (file tree / file manager)
 vim.keymap.set("n", "<leader>pv", ":Ex<CR>")
@@ -58,15 +58,6 @@ vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
 vim.keymap.set("n", "j", "jzz")
 vim.keymap.set("n", "k", "kzz")
-
---auto pairs
---vim.keymap.set("i", "''", "''<Left>")
---vim.keymap.set("i", "\"\"", "\"\"<Left>")
-vim.keymap.set("i", "{}", "{}<Left>")
-vim.keymap.set("i", "()", "()<Left>")
-vim.keymap.set("i", "[]", "[]<Left>")
-vim.keymap.set("i", "<>", "<><Left>")
-vim.keymap.set("i", "/*", "/**/<Left><Left>")
 
 --visual mode maps
 --find and replace

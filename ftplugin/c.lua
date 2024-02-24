@@ -5,6 +5,10 @@ vim.keymap.set("i", "switch<CR>",
 	"switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kk0/@<CR>")
 vim.keymap.set("i", "for<CR>", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>")
 
+--comment toggling
+vim.keymap.set("v", "<C-/>", "<S-i>//<Esc>")
+vim.keymap.set("n", "<C-/>", "0i//<Esc>")
+
 -------------------------------------------------------------------------------
 --                                 CLANGD LSP                                --
 -------------------------------------------------------------------------------

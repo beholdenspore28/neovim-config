@@ -1,3 +1,7 @@
+--comment toggling
+vim.keymap.set("v", "<C-/>", "<S-i>--<Esc>")
+vim.keymap.set("n", "<C-/>", "0i--<Esc>")
+
 local root_files = {
   '.luarc.json',
   '.luarc.jsonc',
