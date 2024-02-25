@@ -37,9 +37,6 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 local opts = { noremap = true }
 
---make build
-map("n", "<F5>", ":!bear -- make -B -j<CR>")
-
 --Esc emulation
 map("i", "jk","<Esc>", opts)
 map("i", "kj","<Esc>", opts)
