@@ -38,10 +38,14 @@ local map = vim.keymap.set
 local opts = { noremap = true }
 
 --make build
-map("n", "<F5>", ":!make -B -j<CR>")
+map("n", "<F5>", ":!bear -- make -B -j<CR>")
+
+--Esc emulation
+map("i", "jk","<Esc>", opts)
+map("i", "kj","<Esc>", opts)
 
 --find file
-map("n","<leader>f",":find ./**/", opts)
+map("n","<leader>f",":find ./**/*", opts)
 
 --netrw (file tree / file manager)
 map("n", "<leader>pv", ":Ex<CR>", opts)
@@ -71,6 +75,8 @@ map("v","<leader>r","\"hy:%s/<C-r>h//g<left><left>", opts)
 map("v","J",":m '>+1<CR>gv=gv", opts);
 --move selected line up
 map("v","K",":m '>-2<CR>gv=gv", opts);
+--indent selected text
+map("v", "<Tab>","<S-i><Tab><Esc>")
 
 --lsp: format buffer
 map("n","<leader><F7>",":lua vim.lsp.buf.format()<CR>", opts);
