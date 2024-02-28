@@ -19,6 +19,8 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+--vim.opt.foldnestmax = 1
+--vim.opt.foldmethod = "indent"
 
 -------------------------------------------------------------------------------
 --                                 COLORSCHEME                               --
@@ -49,8 +51,8 @@ map("n", "<leader>pv", ":Ex<CR>", opts)
 map("n", "<leader>e", ":25Lex<CR>", opts)
 
 --buffers
-map("n", "<Tab>", ":bnext<CR>", opts)
-map("n", "<S-Tab>", ":bprev<CR>", opts)
+map("n", "<Tab>", ":bnext<CR>:buffers<CR>", opts)
+map("n", "<S-Tab>", ":bprev<CR>:buffers<CR>", opts)
 map("n", "<leader>d", ":bd!<CR>", opts)
 
 --window switching
