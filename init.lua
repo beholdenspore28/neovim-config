@@ -3,7 +3,7 @@
 -------------------------------------------------------------------------------
 
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.tabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
@@ -19,6 +19,7 @@ vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
+vim.opt.completeopt = { "menu", "menuone", "longest", "preview" }
 --vim.opt.foldnestmax = 1
 --vim.opt.foldmethod = "indent"
 
@@ -42,6 +43,10 @@ local opts = { noremap = true }
 --Esc emulation
 map("i", "jk","<Esc>", opts)
 map("i", "kj","<Esc>", opts)
+
+--auto complete
+map("i", "<C-p","<C-x-C-i>")
+map("i", "<C-n","<C-x-C-i>")
 
 --find file
 map("n","<leader>f",":find ./**/*", opts)
@@ -79,3 +84,4 @@ map("v", "<Tab>","<S-i><Tab><Esc>")
 
 --lsp: format buffer
 map("n","<leader><F7>",":lua vim.lsp.buf.format()<CR>", opts);
+

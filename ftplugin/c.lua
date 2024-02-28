@@ -1,45 +1,48 @@
 local map = vim.keymap.set
 local opts = { noremap = true }
 
-
 -------------------------------------------------------------------------------
---                                 MAKE                                      --
+--SECTION: MAKE
 -------------------------------------------------------------------------------
 
 map("n", "<F5>", ":!bear -- make -B -j build<CR>")
 map("n", "<F12>", ":make format<CR><CR>")
 
 -------------------------------------------------------------------------------
---                             CODE SNIPPETS                                 --
+--SECTION: CODE SNIPPETS
 -------------------------------------------------------------------------------
 
-map("i", "switch<CR>", 
-	"switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kkk0/@<CR>", opts)
+map("i", "`switch", "switch (@) {<CR>case: @;<CR>break;<CR>}<C-c>kkk0/@<CR>", opts)
 
-map("i", "for<CR>", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>", opts)
+map("i", "`for", "for (@;@;@) {<CR><CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "if<CR>", "if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+map("i", "`if", "if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "elif<CR>", "else if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
+map("i", "`elif", "else if (@) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "fun<CR>", "@ @ (@) {<CR>@<CR>}<C-c>kk/@<CR>", opts)
+map("i", "`fun", "@ @ (@) {<CR>@<CR>}<C-c>kk/@<CR>", opts)
 
-map("i", "fori<CR>", 
+map("i", "`fori", 
 	"for (int i = 0; i < @; i++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "forj<CR>", 
+map("i", "`forj", 
 	"for (int j = 0; j < @; j++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "fork<CR>", 
+map("i", "`fork", 
 	"for (int k = 0; k < @; k++) {<CR>@<CR>}<C-c>kk0/@<CR>", opts)
 
-map("i", "while<CR>", "while @ do<CR>@<CR>end<C-c>kk0/@<CR>", opts)
+map("i", "`while", "while @ do<CR>@<CR>end<C-c>kk0/@<CR>", opts)
 
-map("i", "struct<CR>", "typedef struct {<CR>@<CR>} @;<C-c>kk0/@<CR>", opts)
+map("i", "`struct", "typedef struct {<CR>@<CR>} @;<C-c>kk0/@<CR>", opts)
 
 map("i",",.", "->")
+
+map("i", "`sec", 
+"//************************************************************************"..
+"***//<CR><Tab> SECTION:<CR>***********************************************"..
+"****************************//<Up><Tab>")
 -------------------------------------------------------------------------------
---                                   OTHER                                   --
+--SECTION: OTHER
 -------------------------------------------------------------------------------
 
 --comment toggling
@@ -47,7 +50,7 @@ map("v", "<C-/>", "<S-i>//<Esc>", opts)
 map("n", "<C-/>", "0i//<Esc>", opts)
 
 -------------------------------------------------------------------------------
---                                 CLANGD LSP                                --
+--SECTION: CLANG-LSP
 -------------------------------------------------------------------------------
 
 local root_files = {
