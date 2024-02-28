@@ -40,6 +40,21 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 local opts = { noremap = true }
 
+--save buffer
+map("n",":W",":w", opts)
+map("n",":Q",":q", opts)
+map("n",":WQ",":wq", opts)
+
+map("i", "<Left>", "<Nop>")
+map("i", "<Right>", "<Nop>")
+map("i", "<Up>", "<Nop>")
+map("i", "<Down>", "<Nop>")
+            
+map("n", "<Left>", "<Nop>")
+map("n", "<Right>", "<Nop>")
+map("n", "<Up>", "<Nop>")
+map("n", "<Down>", "<Nop>")
+
 --Esc emulation
 map("i", "jk","<Esc>", opts)
 map("i", "kj","<Esc>", opts)
