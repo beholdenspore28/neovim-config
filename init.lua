@@ -12,13 +12,12 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
 vim.opt.guicursor = ""
 vim.opt.incsearch = true
-vim.opt.scrolloff = 20
+vim.opt.scrolloff = 200
 vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 --vim.opt.colorcolumn = "80"
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
-vim.opt.background = "dark"
 vim.opt.completeopt = { "menu", "menuone", "longest", "preview" }
 --vim.opt.foldnestmax = 1
 --vim.opt.foldmethod = "indent"
@@ -27,7 +26,9 @@ vim.opt.completeopt = { "menu", "menuone", "longest", "preview" }
 --                                 COLORSCHEME                               --
 -------------------------------------------------------------------------------
 
-vim.cmd.colorscheme("lunaperche")
+vim.cmd.colorscheme("quiet")
+vim.opt.background = "light"
+
 --background opacity
 --	vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
 --	vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
@@ -52,16 +53,19 @@ map("n","<leader>W",":wa<CR>", opts)
 map("i", "<C-p","<C-x-C-i>",opts)
 map("i", "<C-n","<C-x-C-i>",opts)
 
+--disable arrow keys "insert mode"
 map("i", "<Left>", "<Nop>");
 map("i", "<Right>", "<Nop>");
 map("i", "<Up>", "<Nop>");
 map("i", "<Down>", "<Nop>");
 
+--disable arrow keys "visual mode"
 map("v", "<Left>", "<Nop>");
 map("v", "<Right>", "<Nop>");
 map("v", "<Up>", "<Nop>");
 map("v", "<Down>", "<Nop>");
 
+--disable arrow keys "normal mode"
 map("n", "<Left>", "<Nop>");
 map("n", "<Right>", "<Nop>");
 map("n", "<Up>", "<Nop>");
@@ -71,7 +75,11 @@ map("n", "<Down>", "<Nop>");
 map("n","<leader>f",":find ./**/*", opts)
 
 --netrw (file tree / file manager)
-map("n", "<leader>e", ":Ex<CR>", opts)
+--map("n", "<leader>e", ":Ex<CR>", opts)
+vim.g.netrw_banner = 0
+vim.g.netrw_liststyle = 3 --tree style netrw
+map("n", "<leader>e", ":25Lex<CR>")
+
 
 --buffers
 map("n", "<Tab>", ":bnext<CR>:buffers<CR>", opts)
@@ -85,10 +93,10 @@ map("n", "<C-k>", "<C-w>k", opts)
 map("n", "<C-l>", "<C-w>l", opts)
 
 --scrolling
-map("n", "<C-d>", "<C-d>zz", opts)
-map("n", "<C-u>", "<C-u>zz", opts)
-map("n", "j", "jzz", opts)
-map("n", "k", "kzz", opts)
+--map("n", "<C-d>", "<C-d>zz", opts)
+--map("n", "<C-u>", "<C-u>zz", opts)
+--map("n", "j", "jzz", opts)
+--map("n", "k", "kzz", opts)
 
 -------------------------------------------------------------------------------
 --SECTION: VISUAL MODE
