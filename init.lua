@@ -3,9 +3,10 @@
 -------------------------------------------------------------------------------
 
 vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
+vim.opt.relativenumber = false
+--vim.opt.tabstop = 2
+--vim.opt.softtabstop = 2
+--vim.opt.shiftwidth = 2
 vim.opt.smartindent = true
 vim.opt.swapfile = false
 vim.opt.backup = false
@@ -19,6 +20,7 @@ vim.opt.isfname:append("@-@")
 vim.opt.cursorline = true
 vim.opt.termguicolors = true
 vim.opt.completeopt = { "menu", "menuone", "longest", "preview" }
+vim.opt.ignorecase=true
 --vim.opt.foldnestmax = 1
 --vim.opt.foldmethod = "indent"
 
@@ -26,12 +28,12 @@ vim.opt.completeopt = { "menu", "menuone", "longest", "preview" }
 --                                 COLORSCHEME                               --
 -------------------------------------------------------------------------------
 
-vim.cmd.colorscheme("quiet")
+vim.cmd.colorscheme("lunaperche")
 vim.opt.background = "light"
 
 --background opacity
---	vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
---	vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
+--vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
+--vim.api.nvim_set_hl(0, "NormalFloat", {bg = "none"})
 
 -------------------------------------------------------------------------------
 --                                  KEYBINDS                                 --
@@ -41,6 +43,9 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 local opts = { noremap = true }
 
+--make
+map("n", "<Leader>r", ":make -B -j<CR>", opts)
+
 --save buffer
 map("n","<leader>w",":w<CR>", opts)
 map("n","<leader>W",":wa<CR>", opts)
@@ -48,6 +53,10 @@ map("n","<leader>W",":wa<CR>", opts)
 --Esc emulation
 --map("i", "jk","<Esc>", opts)
 --map("i", "kj","<Esc>", opts)
+
+--open nvim config
+map("n", "<leader>`", ":so ~/.config/nvim/init.lua<CR>")
+map("n", "<leader>~", ":e ~/.config/nvim/init.lua<CR>")
 
 --auto complete
 map("i", "<C-p","<C-x-C-i>",opts)
@@ -75,16 +84,16 @@ map("n", "<Down>", "<Nop>");
 map("n","<leader>f",":find ./**/*", opts)
 
 --netrw (file tree / file manager)
---map("n", "<leader>e", ":Ex<CR>", opts)
 vim.g.netrw_banner = 0
 vim.g.netrw_liststyle = 3 --tree style netrw
-map("n", "<leader>e", ":25Lex<CR>")
+map("n", "<leader>e", ":Ex<CR>")
 
 
 --buffers
-map("n", "<Tab>", ":bnext<CR>:buffers<CR>", opts)
-map("n", "<S-Tab>", ":bprev<CR>:buffers<CR>", opts)
+map("n", "<Tab>", ":bnext<CR>", opts)
+map("n", "<S-Tab>", ":bprev<CR>", opts)
 map("n", "<leader>d", ":bd!<CR>", opts)
+map("n", "<leader><Tab>", ":buffers<CR>", opts)
 
 --window switching
 map("n", "<C-h>", "<C-w>h", opts)
